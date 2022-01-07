@@ -1,0 +1,31 @@
+<div class="root_div">
+    <div class="main_div">
+        <div>
+            <button class="add_property_btn btn btn-primary" (click)="addpropertyBtnClick()">{{addPropertyBtnCaption}}</button>
+        </div>
+        <div *ngIf="propertyFormVisibility">
+        <form [formGroup]="propertyFormGroup" (ngSubmit)="propertyFormSubmit()" style="width: 600px;">
+            <div class="mb-3">
+              <label for="exampleInputname" class="form-label">Property Name*</label>
+              <input type="text" class="form-control" formControlName="propertyName" placeholder="Enter property name" id="exampleInputname" aria-describedby="emailHelp">
+              <div *ngIf="propertyFormGroup.controls.propertyName.touched">
+                <span style="color: red; font-weight: bold;" *ngIf="propertyFormGroup.controls.propertyName.errors?.required"  >This field is required.</span>
+                <span style="color: red; font-weight: bold;" *ngIf="propertyFormGroup.controls.propertyName.errors?.minlength"  >Property name length must be at least of 3 characters.</span>
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputDescription" class="form-label">Property Description*</label>
+                <textarea type="text" class="form-control" formControlName="propertyDescription" placeholder="Enter property description" id="exampleInputDescription" aria-describedby="emailHelp"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputSize" class="form-label">Property Size*</label>
+                <input type="number" class="form-control" formControlName="propertySize" placeholder="Enter property size" id="exampleInputSize" aria-describedby="emailHelp">
+              </div>
+            <button type="submit" class="btn btn-success">Add</button>
+          </form>
+        </div>
+        <div class="items_div">
+            <app-property-card *ngFor="let property of allProperty" [property]="property" (eventEmitter)="removeproperty($event)"></app-property-card>
+        </div>
+    </div>
+</div>

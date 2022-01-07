@@ -1,0 +1,8 @@
+<div class="root_div">
+    <div class="name_div">
+        <h2>{{property.propertyName}}</h2>
+        <h5> Size: {{property.propertySize}}</h5>
+    </div>
+  <p>{{property.propertyDescription}}</p>
+  <button class="btn btn-danger btn-sm" style="text-align: end;" (click)="deletePropertyBtnClick(property._id)">Delete</button>
+</div>

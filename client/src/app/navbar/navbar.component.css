@@ -1,0 +1,10 @@
+.navbar_div {
+  background-color: coral;
+  padding: 12px;
+}
+
+.navbar_heading {
+  color: black;
+  font-size: 35px;
+  text-align: center;
+}
