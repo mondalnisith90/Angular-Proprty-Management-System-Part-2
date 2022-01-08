@@ -8,10 +8,6 @@
             <div class="mb-3">
               <label for="exampleInputname" class="form-label">Property Name*</label>
               <input type="text" class="form-control" formControlName="propertyName" placeholder="Enter property name" id="exampleInputname" aria-describedby="emailHelp">
-              <div *ngIf="propertyFormGroup.controls.propertyName.touched">
-                <span style="color: red; font-weight: bold;" *ngIf="propertyFormGroup.controls.propertyName.errors?.required"  >This field is required.</span>
-                <span style="color: red; font-weight: bold;" *ngIf="propertyFormGroup.controls.propertyName.errors?.minlength"  >Property name length must be at least of 3 characters.</span>
-              </div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputDescription" class="form-label">Property Description*</label>

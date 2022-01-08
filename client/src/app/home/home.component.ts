@@ -10,9 +10,9 @@ import { PropertyService } from '../services/property.service';
 export class HomeComponent implements OnInit {
 
   propertyFormGroup: FormGroup = new FormGroup({
-    propertyName: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    propertyDescription: new FormControl("", [Validators.required]),
-    propertySize: new FormControl("", [Validators.required])
+    propertyName: new FormControl(""),
+    propertyDescription: new FormControl(""),
+    propertySize: new FormControl(0)
   });
 
   propertyId: number = 100;
@@ -43,13 +43,13 @@ export class HomeComponent implements OnInit {
     this.addNewPropertyOnServer();
   }
 
-  private addNewPropertyLocally() {
-    let tempProp = {
-      ...this.propertyFormGroup.value,
-      _id: ++this.propertyId
-    }
-    this.allProperty.unshift(tempProp);
-  }
+  // private addNewPropertyLocally() {
+  //   let tempProp = {
+  //     ...this.propertyFormGroup.value,
+  //     _id: ++this.propertyId
+  //   }
+  //   this.allProperty.unshift(tempProp);
+  // }
 
   private addNewPropertyOnServer() {
     const propertyDetails = this.propertyFormGroup.value;
